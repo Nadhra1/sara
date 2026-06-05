@@ -377,3 +377,56 @@ body {
     100% { transform: scale(0.75); } /* تصغير نهائي مريح للعين في الموبايل */
   }
 }
+/* ==========================================================================
+   كود التجاوب السحري الشامل لجميع الأجهزة (ضعه في نهاية أي ملف CSS)
+   ========================================================================== */
+
+/* 1. إعدادات ذكية عامة للشاشات الصغيرة لتمنع خروج أي عنصر أو زر عن السيطرة */
+@media (max-width: 768px) {
+  
+  /* الحاوية الرئيسية للموقع: نمنع الخطوط الجانبية ونضبط الحجم ليناسب اليد */
+  body, .container, .main, [class*="container"], [class*="ground"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important; /* يمنع ظهور خط التمرير الأفقي المزعج */
+  }
+
+  /* النصوص والعناوين: نجعلها تصغر تلقائياً لتناسب شاشة الهاتف */
+  h1, [class*="title"], [class*="header"] {
+    font-size: clamp(1.6rem, 6vw, 2.2rem) !important; 
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+  }
+
+  /* الأزرار: نجعلها مرنة ولا تخرج عن حدود الصندوق مهما كبر حجمها */
+  button, .btn, [class*="button"] {
+    width: 100% !important; /* تأخذ العرض الكامل بشكل مرتب في الموبايل */
+    max-width: 100% !important;
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+    padding: 12px 20px !important;
+    word-break: break-word !important;
+  }
+
+  /* الصور والملفات المتحركة (GIF): نضمن عدم تشوهها أو خروجها عن حدود الشاشة */
+  img, svg, .gif_container img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* تطبيق أنيميشن خاص بالموبايل لتقليص العناصر الضخمة بسلاسة */
+  .responsive-scale, [class*="ground"] {
+    animation: mobileShrink 1s ease-out forwards !important;
+  }
+}
+
+/* 2. الـ Keyframes السحرية التي طلبتها لضبط وتكييف أحجام العناصر الضخمة */
+@keyframes mobileShrink {
+  0% {
+    transform: translate(-50%, -50%) scale(1.5); /* إذا كان العنصر ضخم في الكمبيوتر */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.85); /* يتم تقليصه بنسبة مريحة للموبايل */
+  }
+}
