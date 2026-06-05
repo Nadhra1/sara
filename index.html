@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Flower Animation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-box">
+            <h2>هدية خاصة من أجل:</h2>
+            <h1 class="target-name">سارة</h1>
+            <p>❤️💫</p>
+            <button id="startBtn" class="start-btn">افتح الهدية 🎁</button>
+        </div>
+    </div>
+
+    <div id="flower-title" class="flower-title-container">
+        <h1 class="glowing-text">روحي سارة</h1>
+    </div>
+
+    <div class="ground">
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+        <div class="flower-container"></div>
+    </div>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="./script.js"></script>
+</body>
+</html>
