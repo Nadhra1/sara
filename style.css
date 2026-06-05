@@ -16,38 +16,44 @@ body {
 }
 
 /* ==========================================================================
-   إصلاح واجهة الهدية لتكون مستقلة تماماً وفي السنتر من أول ثانية
+   الحل القاطع والنهائي لسنترة واجهة الهدية ومنع القفز والحركة العشوائية
    ========================================================================== */
+
 .welcome-overlay {
-  position: fixed;   /* التثبيت الكامل فوق كل شيء بشكل مستقل */
-  top: 50%;          /* النزول لمنتصف الشاشة */
-  left: 50%;         /* التحرك لمنتصف الشاشة */
-  transform: translate(-50%, -50%); /* السنترة الرياضية المطلقة والنهائية */
-  width: 100vw;
-  height: 100vh;
-  background: rgba(3, 4, 18, 0.93); /* خلفية داكنة تحجب تضارب الورد بالخلفية */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  z-index: 99999;    /* رقم ضخم لضمان ظهورها فوق أنيميشن الـ ground */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #030412 !important; /* خلفية صلبة داكنة تماماً تمنع رؤية أي تشوه بالخلفية */
+  z-index: 999999 !important; /* أعلى طبقة ممكنة في المتصفح */
+  
+  /* تفعيل الفليكس بوكس الصارم للسنترة */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  
+  /* تصفير أي أنيميشن أو تحويل قد يكون موروثاً من الـ body أو الـ ground */
+  transform: none !important; 
+  animation: none !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
 }
 
-/* صندوق الترحيب الداخلي */
 .welcome-box {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 35px 25px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-  max-width: 400px;
-  width: 90%;
-  box-sizing: border-box;
-  /* ألغينا أي أنيميشن قد يسبب حركة تذبذب عند الدخول */
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 35px 25px !important;
+  border-radius: 20px !important;
+  text-align: center !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+  max-width: 400px !important;
+  width: 90% !important;
+  box-sizing: border-box !important;
+  
+  /* نضمن أن الصندوق نفسه لا يتحرك أو يتأثر بأنيميشن الورد */
+  transform: none !important;
+  animation: none !important; 
 }
 
 .welcome-box h2 {
